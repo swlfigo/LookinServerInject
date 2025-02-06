@@ -1,0 +1,17 @@
+Package: com.isylar.LookinInject
+Name: LookinInject
+Version: 0.1-1
+Description: 
+Section: Tweaks
+Depends: firmware (>= 5.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: sylar
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+

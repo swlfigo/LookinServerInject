@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'LookinInject' target in the 'LookinInject' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
