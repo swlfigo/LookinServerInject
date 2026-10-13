@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C0E3C292D5484DF0054B785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E3C282D5484DF0054B785 /* Foundation.framework */; };
-		2C0E3C482D5484E40054B785 /* LookinInject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C0E3C452D5484E40054B785 /* LookinInject.mm */; };
 		2C0E3C492D5484E40054B785 /* LookinInject-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E3C462D5484E40054B785 /* LookinInject-Prefix.pch */; };
 		2C0E3C4C2D5484F70054B785 /* EntryPointFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0E3C4B2D5484F70054B785 /* EntryPointFile.m */; };
 		2C0E3C4E2D54851A0054B785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0E3C4D2D54851A0054B785 /* UIKit.framework */; };
@@ -156,10 +155,9 @@
 		2C0E3C282D5484DF0054B785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C0E3C3E2D5484E40054B785 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		2C0E3C402D5484E40054B785 /* LookinInject.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LookinInject.plist; sourceTree = "<group>"; };
-		2C0E3C452D5484E40054B785 /* LookinInject.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LookinInject.mm; sourceTree = "<group>"; };
 		2C0E3C462D5484E40054B785 /* LookinInject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LookinInject-Prefix.pch"; sourceTree = "<group>"; };
 		2C0E3C4B2D5484F70054B785 /* EntryPointFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryPointFile.m; sourceTree = "<group>"; };
-		2C0E3C4D2D54851A0054B785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		2C0E3C4D2D54851A0054B785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C0E3C4F2D54854A0054B785 /* LookinIvarTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookinIvarTrace.h; sourceTree = "<group>"; };
 		2C0E3C502D54854A0054B785 /* LookinIvarTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookinIvarTrace.m; sourceTree = "<group>"; };
 		2C0E3C522D54854A0054B785 /* CALayer+LookinServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+LookinServer.h"; sourceTree = "<group>"; };
@@ -295,8 +293,8 @@
 		2C0E3CDB2D54854A0054B785 /* LookinTuple.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookinTuple.m; sourceTree = "<group>"; };
 		2C0E3CDC2D54854A0054B785 /* LookinWeakContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookinWeakContainer.h; sourceTree = "<group>"; };
 		2C0E3CDD2D54854A0054B785 /* LookinWeakContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookinWeakContainer.m; sourceTree = "<group>"; };
-		2C0E3D6B2D5486D20054B785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		2C0E3D6D2D5486F10054B785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		2C0E3D6B2D5486D20054B785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C0E3D6D2D5486F10054B785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,7 +386,6 @@
 			children = (
 				2C0E3CE22D54854A0054B785 /* Src */,
 				2C0E3C442D5484E40054B785 /* Package */,
-				2C0E3C452D5484E40054B785 /* LookinInject.mm */,
 				2C0E3C462D5484E40054B785 /* LookinInject-Prefix.pch */,
 				2C0E3C4B2D5484F70054B785 /* EntryPointFile.m */,
 			);
@@ -780,7 +777,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C0E3C482D5484E40054B785 /* LookinInject.mm in Sources */,
 				2C0E3D2A2D54854A0054B785 /* NSArray+Lookin.m in Sources */,
 				2C0E3D2B2D54854A0054B785 /* NSObject+LookinServer.m in Sources */,
 				2C0E3D2C2D54854A0054B785 /* LookinAttributesSection.m in Sources */,
@@ -859,7 +855,6 @@
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NG779RMVC9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -884,7 +879,6 @@
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NG779RMVC9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

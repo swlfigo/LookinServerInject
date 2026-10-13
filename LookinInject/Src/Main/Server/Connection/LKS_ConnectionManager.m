@@ -18,12 +18,14 @@
 #import "LKS_MultiplatformAdapter.h"
 
 NSString *const LKS_ConnectionDidEndNotificationName = @"LKS_ConnectionDidEndNotificationName";
+NSString *const LKS_ServerDidBecomeReadyNotificationName = @"LKS_ServerDidBecomeReadyNotificationName";
 
 @interface LKS_ConnectionManager () <Lookin_PTChannelDelegate>
 
 @property(nonatomic, weak) Lookin_PTChannel *peerChannel_;
 
 @property(nonatomic, strong) LKS_RequestHandler *requestHandler;
+@property(nonatomic, assign) BOOL isSearchingForPort;
 
 @end
 
@@ -75,8 +77,18 @@ NSString *const LKS_ConnectionDidEndNotificationName = @"LKS_ConnectionDidEndNot
 }
 
 - (void)_handleApplicationDidBecomeActive {
-    self.applicationIsActive = YES;
-    [self searchPortToListenIfNoConnection];
+    [self startIfNeeded];
+}
+
+- (BOOL)serverReady {
+    return [self.peerChannel_ isListening] || [self.peerChannel_ isConnected];
+}
+
+- (void)startIfNeeded {
+    self.applicationIsActive = [UIApplication sharedApplication].applicationState == UIApplicationStateActive;
+    if (self.applicationIsActive && !self.serverReady) {
+        [self searchPortToListenIfNoConnection];
+    }
 }
 
 - (void)searchPortToListenIfNoConnection {
@@ -84,6 +96,8 @@ NSString *const LKS_ConnectionDidEndNotificationName = @"LKS_ConnectionDidEndNot
         NSLog(@"LookinServer - Abort to search ports. Already has connected channel.");
         return;
     }
+    if (self.isSearchingForPort) return;
+    self.isSearchingForPort = YES;
     NSLog(@"LookinServer - Searching port to listen...");
     [self.peerChannel_ close];
     self.peerChannel_ = nil;
@@ -133,6 +147,7 @@ NSString *const LKS_ConnectionDidEndNotificationName = @"LKS_ConnectionDidEndNot
                 [self _tryToListenOnPortFrom:fromPort to:toPort current:(currentPort + 1)];
             } else {
                 // 所有端口都尝试完毕，全部失败
+                self.isSearchingForPort = NO;
                 NSLog(@"LookinServer - 127.0.0.1:%d is unavailable(%@).", currentPort, error);
                 NSLog(@"LookinServer - Connect failed in the end.");
             }
@@ -142,6 +157,8 @@ NSString *const LKS_ConnectionDidEndNotificationName = @"LKS_ConnectionDidEndNot
             NSLog(@"LookinServer - Connected successfully on 127.0.0.1:%d", currentPort);
             // 此时 peerChannel_ 状态为 listening
             self.peerChannel_ = channel;
+            self.isSearchingForPort = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:LKS_ServerDidBecomeReadyNotificationName object:self];
         }
     }];
 }

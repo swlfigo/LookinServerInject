@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 
 extern NSString *const LKS_ConnectionDidEndNotificationName;
+extern NSString *const LKS_ServerDidBecomeReadyNotificationName;
 
 @class LookinConnectionResponseAttachment;
 
@@ -19,6 +20,10 @@ extern NSString *const LKS_ConnectionDidEndNotificationName;
 + (instancetype)sharedInstance;
 
 @property(nonatomic, assign) BOOL applicationIsActive;
+@property(nonatomic, readonly) BOOL serverReady;
+
+/// Call on the main thread to support injection after the app has become active.
+- (void)startIfNeeded;
 
 - (void)respond:(LookinConnectionResponseAttachment *)data requestType:(uint32_t)requestType tag:(uint32_t)tag;
 
